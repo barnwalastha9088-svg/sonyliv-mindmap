@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What after 100? SonyLIV Asian Games – case mind map</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbfaf6;--ink:#1d2330;--mut:#5d6575;--bar:#cfd3dc;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15181e;--ink:#e9ebf1;--mut:#9aa2b2;--bar:#3a404c}}
+:root[data-theme="dark"]{--bg:#15181e;--ink:#e9ebf1;--mut:#9aa2b2;--bar:#3a404c}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+body{margin:0;height:100%;display:flex;flex-direction:column;background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1.5px solid var(--bar)}
+h1{margin:0;font-size:20px;font-weight:800}
+header p{margin:2px 0 0;font-size:12.5px;color:var(--mut)}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+button{font:inherit;font-size:13px;font-weight:600;color:var(--ink);background:var(--bg);border:1.5px solid var(--ink);border-radius:8px;padding:5px 11px;cursor:pointer}
+button:hover{background:var(--ink);color:var(--bg)}
+.chart{display:flex;align-items:flex-end;gap:7px;height:62px}
+.chart div{width:34px;text-align:center;font-size:10px;color:var(--mut)}
+.chart i{display:block;background:var(--bar);border-radius:3px 3px 0 0;margin-bottom:2px}
+.chart b{display:block;color:var(--ink);font-size:11px}
+.chart .hi i{background:#d9480f}
+#wrap{flex:1;overflow:auto}
+#stage{position:relative;transform-origin:0 0}
+#lines{position:absolute;left:0;top:0;overflow:visible}
+.n{position:absolute;box-sizing:border-box;padding:6px 10px;border-radius:10px;font-size:13px;line-height:1.3;background:color-mix(in srgb,var(--c) 10%,var(--bg));border:1.5px solid color-mix(in srgb,var(--c) 55%,var(--bg))}
+.n.p{cursor:pointer}
+.d0{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:800;font-size:19px;text-align:center;padding:16px;border-radius:18px}
+.d0 small{display:block;font-weight:400;font-size:12px;margin-top:6px;opacity:.8}
+.d1{background:var(--c);color:#fff;border-color:var(--c);font-weight:800;font-size:15px;border-radius:999px;padding:9px 16px}
+.d2{font-weight:600;background:color-mix(in srgb,var(--c) 22%,var(--bg))}
+.d4{border-style:dashed}
+.b{font-size:11px;margin-left:6px;opacity:.75}
+</style></head>
+<body>
+<header>
+ <div><h1>What after 100? SonyLIV and the Asian Games</h1>
+ <p>Case mind map · click any node to fold or unfold its branch</p></div>
+ <div class="chart" id="chart" title="India’s Asian Games medal totals"></div>
+ <div class="tools"><button id="ex">Expand all</button><button id="co">Topics only</button><button id="zo">−</button><button id="zi">+</button><button id="fit">Fit</button></div>
+</header>
+<div id="wrap"><div id="zoomer"><div id="stage"><svg id="lines"></svg></div></div></div>
+<script>
+const DATA=["What after 100?",[
+["The case and the ask",[
+ ["Who’s involved",["Ananya Bisht: media and sports business analyst","Clients: banks choosing media spend","Rahul Mistry: sceptic of tidy causal stories"]],
+ ["Timeline",["Apr 2023: ‘Iss Baar Sau Ke Paar’ launched","Oct 2023: India wins 107 medals","Apr 2026: Sony gets 2026 rights","Jul 2026: ‘nothing emotionally sticky’ yet","Oct 2026: Aichi–Nagoya Games"]],
+ ["The ask (4 working days)",["Repeat a stretch number or go new?","Was the number the magic?","What to choose without causal proof?","Clients’ top priority: event viewership"]]]],
+["2023 campaign: what happened",[
+ ["The goal",["‘Iss baar sau ke paar, hum honge phir se kamyab’","100+ medals vs 70 in 2018"]],
+ ["Faces and backers",["Amitabh Bachchan, Aamir Khan, Kapil Sharma","PM promoted the 100 goal publicly","Sports minister and three defence chiefs","Sports journalists united for morale","Won many advertising awards"]],
+ ["Sponsors",["Hyundai, JSW, Limca Sports, Paisabazaar, LIC, UltraTech, SBI","Hyundai: youth aspiration, long-term brand","LIC: national pride","Sponsors buy emotional association, not just reach"]],
+ ["Outcome",["107 medals (+53%): 28 G, 38 S, 41 B","Daily medal tallies in newspapers for two weeks","Tokyo 2020 ‘Hum Honge Kamyab’: 7 medals, moderate success"]]]],
+["How the money flows",[
+ ["Broadcaster revenue",[
+  ["Subscription",["17.9M (2022) → 33.3M (2023) → ~35M by 2025","ARPU ₹575","FY23: +32%, profit ₹136.7 cr, income ₹6,912 cr"]],
+  ["Advertising → sponsors",["Sponsors pay for visibility and association","Budget depends on the four signals below"]],
+  ["Red flag: no communication yet",["Low confidence in what Sony is offering","Weakens willingness to commit sponsor money"]]]],
+ ["What sponsors weigh",[
+  ["Engagement",["High → larger budget","Mid → moderate, test and see","Low → smaller budget or hold"]],
+  ["Residual memory (recall)",["High → increase spend","Mid → repeat purchase possible","Low → don’t invest"]],
+  ["Window for eyeballs",["Big window, many events → larger budget","Small window → lower budget"]],
+  ["Engaging campaign by broadcaster",["High, national-pride tie-in → larger budget","Low, generic → smaller budget"]]]]]],
+["Causal ambiguity: was it the campaign?",[
+ ["Sony-side factors",["Digital entertainment boom","Mobile and internet penetration","Sony–Zee merger (2021)","AWS cloud and Lion Gate interface improved streaming"]],
+ ["Government and ecosystem",["TOPS (2014): coaching, sports science, funding","Khelo India (2018): early talent pipeline","International coaches, better infrastructure","Tax relief on gear, corporate partnerships","Growing sports fan base"]],
+ ["Medal trend",["2006: 53 → 2010: 65 → 2014: 57 → 2018: 70 → 2023: 107","Gradual build, then a jump"]],
+ ["Thinking tools",["Correlation is not causation","Survivorship bias","Halo effect","Indicative vs causal evidence","Possible spiral: win → watch → pressure → win"]]]],
+["Q1: Should a sponsor invest?",[
+ ["Mindset",["Act as CMO or brand manager","Decide under uncertainty; perfect proof is rare"]],
+ ["Evidence to weigh",["Past viewership and reach","SonyLIV subscriber growth and engagement","Sponsor recall from 2023","Fit between sponsor audience and viewers","Sony’s execution and production quality","Expected ROI and long-term brand building","Risk: sporting outcomes are uncertain"]],
+ ["Suggested answer",["Invest, but staged and conditional","Tie spend to viewership and emotional-fit signals","Ask Sony for a clear 2026 narrative"]]]],
+["Q2: Repeat the stretch goal?",[
+ ["A: Raise the number",["125 / 150 medals, or top five in each sport","+ Focus, urgency, daily tracking","− Predictable; reputational hit if missed","− More pressure on athletes"]],
+ ["B: Neutral or nostalgia",["Repeat-the-success tone, no number","Low risk, but low emotion"]],
+ ["C: New narrative",["Sporting excellence","Future talent","Women athletes","Olympic pathways"]],
+ ["D: Athlete-led content",["Use athletes’ own digital followings","Behind-the-scenes, journeys, rivalries"]],
+ ["Subscriber stickiness",["Emotional stickiness possible, not certain","Must convert into continued viewing","Recreate the shared aspiration, not the number"]]]],
+["Q3: Public goals",[
+ ["Who they align",["Athletes","Viewers and fans","Sponsors","Government","Broadcaster and journalists","One shared yardstick: ‘100’"]],
+ ["Benefits",["Focus, urgency, momentum","Conversation throughout the event","Public accountability","Sponsor visibility"]],
+ ["Pitfalls",["Pressure on athletes","Higher expectations","Hard to repeat","Reputational damage if missed"]],
+ ["Verdict",["Catalyst, not sole cause","Needs a strong supporting ecosystem"]]]],
+["2026 reality check",[
+ ["Results",["Games ended 4 Oct 2026","85 medals: 21 G, 27 S, 37 B","4th overall, below 2023’s 107","Team golds: cricket, kabaddi, hockey (men and women)"]],
+ ["Sony’s approach",["No medal target","‘Festival of Sports’ umbrella: cricket and more, TV and SonyLIV","Expert talk and ‘Performer of the Day’ segments"]],
+ ["Commercial result",["18+ brands by 1 Oct","Highest-grossing multisport event for SonyLIV ad revenue","Beat the previous edition mid-Games"]],
+ ["Still unproven",["Unclear if campaign, pride or wins drove advertisers","Hints a number isn’t essential for ad success"]]]],
+["Teaching flow (90 min)",[
+ ["Learning objectives",["Emotional connection drives engagement","Correlation, causation, causal ambiguity","Decide using indicative evidence","Role of digital, social, TV and OTT"]],
+ ["Session plan",["Intro 5 · Why plan campaigns 5 · Causal ambiguity 5","Invest despite ambiguity? 10 · Stakeholder map 10","Assignment questions 15","‘Shark Tank for sponsors’ activity 30","Conclusion 10"]],
+ ["Readings",["Kahneman: heuristics and biases","Rosenzweig: The Halo Effect","Pearl: The Book of Why","Cornwell: Sponsorship in Marketing"]]]]
+]];
+const W=[220,190,200,230,230],CG=36,GAP=9,BG=22,PAD=40,
+COL=["#1c7ed6","#d9480f","#2b8a3e","#9c36b6","#c2255c","#0c8599","#e67700","#5f3dc4","#6b7280"];
+const stage=document.getElementById("stage"),svg=document.getElementById("lines"),wrap=document.getElementById("wrap"),zm=document.getElementById("zoomer");
+let scale=.8,cw=0,chh=0;
+function mk(a,d,c){const n={d,c,open:true,ch:[]};
+ if(Array.isArray(a)){n.t=a[0];n.ch=a[1].map((x,i)=>mk(x,d+1,d===0?COL[i%COL.length]:c))}else n.t=a;
+ const e=document.createElement("div");e.className="n d"+Math.min(d,4)+(n.ch.length&&d>0?" p":"");
+ e.style.setProperty("--c",c||"#000");e.style.width=W[Math.min(d,4)]+"px";e.textContent=n.t;
+ if(d===0){const s=document.createElement("small");s.textContent="SonyLIV · Asian Games 2026 · sponsor decision case";e.appendChild(s)}
+ if(n.ch.length&&d>0){n.bd=document.createElement("span");n.bd.className="b";e.appendChild(n.bd);e.onclick=()=>{n.open=!n.open;run()}}
+ stage.appendChild(e);n.el=e;return n}
+const root=mk(DATA,0,null);
+function all(n,f){f(n);n.ch.forEach(c=>all(c,f))}
+all(root,n=>{n.h=n.el.offsetHeight});
+const leaves=n=>n.ch.length?n.ch.reduce((s,c)=>s+leaves(c),0):1;
+const L=[],R=[];let ls=0,rs=0;
+root.ch.forEach(b=>{const k=leaves(b);if(rs<=ls){R.push(b);rs+=k}else{L.push(b);ls+=k}});
+function sh(n){const k=n.open?n.ch:[];if(!k.length){return n.sh=n.h}
+ const t=k.reduce((s,c)=>s+sh(c),0)+GAP*(k.length-1);n.sh=Math.max(n.h,t);n.tot=t;return n.sh}
+function hide(n){n.el.style.display="none";n.ch.forEach(hide)}
+const colOff=(d)=>{let s=0;for(let k=1;k<d;k++)s+=W[k]+CG;return s};
+const sideW=colOff(5)+CG-CG;
+function place(n,top,side,rx,lx,paths){
+ n.el.style.display="";n.y=top+(n.sh-n.h)/2;
+ const x=side>0?rx+CG+colOff(n.d):lx-CG-W[Math.min(n.d,4)]-colOff(n.d);n.x=x;
+ n.el.style.left=x+"px";n.el.style.top=n.y+"px";
+ if(n.bd)n.bd.textContent=n.open?"":"+"+n.ch.length;
+ if(n.open&&n.ch.length){let t=top+(n.sh-n.tot)/2;
+  n.ch.forEach(c=>{place(c,t,side,rx,lx,paths);t+=c.sh+GAP;
+   const px=side>0?x+W[Math.min(n.d,4)]:x,cx=side>0?c.x:c.x+W[Math.min(c.d,4)],py=n.y+n.h/2,cy=c.y+c.h/2,dx=(cx-px)/2;
+   paths.push(`<path d="M${px} ${py}C${px+dx} ${py} ${cx-dx} ${cy} ${cx} ${cy}" stroke="${c.c}" stroke-width="${c.d<2?3.5:c.d<3?2.5:1.8}" fill="none" stroke-linecap="round" opacity=".85"/>`)})}
+ else n.ch.forEach(hide)}
+function run(){
+ const side=B=>{B.forEach(sh);return B.reduce((s,b)=>s+b.sh,0)+BG*(B.length-1)};
+ root.ch.forEach(b=>b.el.style.display="");
+ const hl=side(L),hr=side(R),H=Math.max(hl,hr)+PAD*2,sw=colOff(5)+W[4]*0+CG,
+ lx=PAD+sw,rx=lx+W[0];cw=rx+W[0]*0+sw+PAD+ (W[4]);
+ const paths=[];
+ [[L,-1,hl],[R,1,hr]].forEach(([B,s,hh])=>{let t=PAD+(H-PAD*2-hh)/2;B.forEach(b=>{place(b,t,s,rx,lx,paths);t+=b.sh+BG})});
+ root.el.style.left=lx+"px";root.el.style.top=(H-root.h)/2+"px";root.y=(H-root.h)/2;
+ [[L,lx],[R,rx]].forEach(([B,px])=>B.forEach(c=>{const cx=px===lx?c.x+W[1]:c.x,dx=(cx-px)/2,py=root.y+root.h/2,cy=c.y+c.h/2;
+  paths.push(`<path d="M${px} ${py}C${px+dx} ${py} ${cx-dx} ${cy} ${cx} ${cy}" stroke="${c.c}" stroke-width="4" fill="none" stroke-linecap="round" opacity=".9"/>`)}));
+ svg.innerHTML=paths.join("");chh=H;
+ svg.setAttribute("width",cw);svg.setAttribute("height",H);stage.style.width=cw+"px";stage.style.height=H+"px";zoom(scale)}
+function zoom(s){scale=Math.max(.3,Math.min(1.4,s));stage.style.transform="scale("+scale+")";zm.style.width=cw*scale+"px";zm.style.height=chh*scale+"px"}
+document.getElementById("zi").onclick=()=>zoom(scale+.1);
+document.getElementById("zo").onclick=()=>zoom(scale-.1);
+document.getElementById("fit").onclick=()=>{zoom(Math.min(wrap.clientWidth/cw,wrap.clientHeight/chh));wrap.scrollTo(0,0)};
+document.getElementById("ex").onclick=()=>{all(root,n=>n.open=true);run()};
+document.getElementById("co").onclick=()=>{all(root,n=>n.open=n.d!==1);run()};
+const M=[["2006",53],["2010",65],["2014",57],["2018",70],["2023",107],["2026",85]];
+document.getElementById("chart").innerHTML=M.map(([y,v])=>`<div class="${y==="2023"?"hi":""}"><b>${v}</b><i style="height:${v*.38}px"></i>${y}</div>`).join("");
+run();wrap.scrollLeft=(cw*scale-wrap.clientWidth)/2;
+</script></body></html>
